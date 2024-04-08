@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Appsembly</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">APPSEMBLY</a>
+
+            <button id="boton-toggle" class="navbar-toggler" style="border: none;" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-text me-3">
+                    Nuestra plataforma
+                </span>
+                <i id="icono-toggle" class="bi bi-chevron-down"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" style="border: none;" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container d-flex justify-content-end align-items-center mt-5 mr-0">
+        <div class="card mt-5 mr-0 p-5 bg-white" style="max-width: 350px; border-radius: 30px;">
+            <h2 class="text-center mb-4">Inicia sesión</h2>
+            <form th:action="@{/logincheck}" method="post">
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Error!</h5>
+                        <p class="card-text" th:text="${error}"></p>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control rounded-3" id="email" name="email" autofocus>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control rounded-3" id="password" name="password" autofocus>
+                </div>
+                <button type="submit" class="btn bg-info rounded-5 w-75">Ingresar</button>
+                <p class="text-center mt-3"><a href="#">He olvidado mi contraseña</a></p>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const botonToggle = document.getElementById('boton-toggle');
+        const iconoToggle = document.getElementById('icono-toggle');
+
+        botonToggle.addEventListener('click', function () {
+            if (iconoToggle.classList.contains('bi-chevron-down')) {
+                iconoToggle.classList.remove('bi-chevron-down');
+                iconoToggle.classList.add('bi-chevron-up');
+            } else {
+                iconoToggle.classList.remove('bi-chevron-up');
+                iconoToggle.classList.add('bi-chevron-down');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

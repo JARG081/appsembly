@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">APPSEMBLY</a>
+            <!-- SVG que se muestra cuando el aside está inactivo -->
+            <button class="sidebar-toggler btn" id="sidebarToggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-text-right sidebar-icon-inactive" viewBox="0 0 16 16"
+                    style="display: none; z-index: 999;">
+                    <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                </svg>
+                <!-- SVG que se muestra cuando el aside está activo -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-x-lg sidebar-icon-active" viewBox="0 0 16 16" style="z-index: 999;">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <aside class="sidebar active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16vw" height="16vh" fill="currentColor"
+            class="bi bi-person-circle mt-3" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        <p>Contenido del sidebar...</p>
+    </aside>
+
+    <!-- ESTE ES EL FORMULARIO -->
+    <div class="container">
+        <h1 class="my-4">Crear Encuesta</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label for="pregunta">Pregunta:</label>
+                <input type="text" class="form-control" id="pregunta">
+            </div>
+            <div class="mb-3">
+                <label for="respuestas">Respuestas:</label>
+                <div id="respuestasContainer">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Respuesta 1" name="respuestas">
+                        <button class="btn btn-outline-secondary eliminarRespuesta" type="button">Eliminar</button>
+                    </div>
+                </div>
+                <button class="btn btn-success" id="btnAgregarRespuesta" type="button">Agregar Respuesta</button>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Encuesta</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('btnAgregarRespuesta').addEventListener('click', function () {
+            var respuestasContainer = document.getElementById('respuestasContainer');
+            var newInput = document.createElement('div');
+            newInput.classList.add('input-group', 'mb-3');
+            newInput.innerHTML = `
+                <input type="text" class="form-control" placeholder="Respuesta" name="respuestas">
+                <button class="btn btn-outline-secondary eliminarRespuesta" type="button">Eliminar</button>
+            `;
+            respuestasContainer.appendChild(newInput);
+        });
+
+        document.getElementById('respuestasContainer').addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('eliminarRespuesta')) {
+                e.target.closest('.input-group').remove();
+            }
+        });
+    </script>
+    <!-- FORMULARIO 2.0 -->
+    <!-- FORMULARIO PARA LA ENCUESTA -->
+    <div class="surveyForm  d-flex py-4 flex-column mx-auto w-50 bg-danger" style="margin-top: -20vh;display: none;">
+        <!-- <h1 class="my-4 mx-auto">Nueva encuesta</h1>
+<form th:action="@{/appsembly/admin/survey/save}" th:object="${survey}" method="post"
+    class="w-75  mx-auto bg-info" style="display: none;">
+    <div class="mb-3 w-75 mx-auto">
+        <label for="pregunta">Pregunta:</label>
+        <input type="text" class="form-control W-25" id="pregunta">
+    </div>
+    <div class="mb-3 w-75  mx-auto">
+        <label for="respuestas">Respuestas:</label>
+        <div id="respuestasContainer" class="respuestasContainer">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Respuesta 1" name="respuestas[]">
+                <button class="btn btn-danger eliminarRespuesta " type="button">Eliminar</button>
+            </div>
+        </div>
+        <div class="">
+            <button class="btn btn-success btnAgregarRespuesta" id="btnAgregarRespuesta"
+                type="button">Agregar
+                Respuesta</button>
+            <button type="submit" class="btn btn-primary">Guardar Encuesta</button>
+        </div>
+    </div>
+</form> -->
+    </div>
+</body>
+
+</html>

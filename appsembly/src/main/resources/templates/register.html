@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Role Based Auth</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<style>
+    .navbar {
+        background-color: #61df88;
+    }
+</style>
+
+<body>
+
+    <!-- create navigation bar ( header) -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <h2>Role Based Authentication</h2>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br><br><br><br>
+    <!-- Create HTML registration form -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+               
+
+                <h1>Registration</h1>
+
+                <form th:action="@{/registration}" method="post">
+                    <div th:if="${error != null}" class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Error!</h5>
+                            <p class="card-text" th:text="${error}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="firstName">
+                            First Name </label>
+                        <input type="text" id="firstName" class="form-control" name="firstName" th:value="${firstName}"
+                            autofocus />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="lastName">
+                            Last Name </label>
+                        <input type="text" id="lastName" class="form-control" name="lastName" th:value="${lastName}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="email"> Email</label>
+                        <input type="email" id="email" class="form-control" name="email" th:value="${email}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="password">Password </label>
+                        <input id="password" class="form-control" name="password" type="password" th:value="${password}"
+                            autofocus />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="passwordConfirm">PasswordConfirm </label>
+                        <input id="passwordConfirm" class="form-control" name="passwordConfirm" type="password"
+                            th:value="${passwordConfirm}" autofocus />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="role">Role </label>
+                        <input id="role" class="form-control" name="role" type="text" th:value="${role}" autofocus />
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <label class="control-label" for="role">
+                            Role </label>
+                        <select id="role" th:value="${role}" name="role" "form-control form-control-lg">
+                            <option value="USER">USER</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
+                    </div> -->
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            Register</button>
+                        <span>Already registered? <a href="/" th:href="@{/login}">Login
+                                here</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

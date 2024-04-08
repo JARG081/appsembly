@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CodeJava Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/indexAdmin.css}" />
+
+</head>
+
+<body>
+    <nav th:fragment="indexNavbar" class="navbar navbar-expand-lg shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">APPSEMBLY</a>
+            <button class="sidebar-toggler bg-transparent" id="sidebarToggle">
+                <!-- SVG que se muestra cuando el aside está inactivo -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    class="bi bi-text-right sidebar-icon-inactive" viewBox="0 0 16 16" style="display: none;">
+                    <path fill-rule="evenodd"
+                        d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5" />
+                </svg>
+
+                <!-- SVG que se muestra cuando el aside está activo -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="bi bi-x-lg sidebar-icon-active"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <aside th:fragment="indexAside" class="active sidebar shadow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16vw" height="16vh" fill="currentColor"
+            class="bi bi-person-circle mt-3" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        <p>Contenido del sidebar...</p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </aside>
+
+
+
+    <main class="container">
+        <h1 class="text-center py-4">TABLERO DE ADMINISTRACIÓN</h1>
+        <div class="row">
+            <!-- Tarjeta Promedio de Asistencia -->
+            <div class="col-md-6 p-0">
+                <div class="average-card shadow rounded-3 ">
+                    <p class="text-center" style="color: white; font-size: 1.7rem;">PROMEDIO DE ASISTENCIA</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="#fff" class="bi bi-pie-chart"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793zm1 0V7.5h6.482A7 7 0 0 0 8.5 1.018M14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8" />
+                    </svg>
+                    <p class="text-center" style="font-size: 2rem;">X % X</p>
+                </div>
+            </div>
+            <!-- Tarjeta de Nueva Encuesta -->
+            <div class="col-md-6 mb-1">
+                <div class=" surveyCard d-flex flex-column align-items-center shadow rounded-3  p-4" id="surveyCard">
+                    <p class="text-center" style="color: white; font-size: 1.7rem;">Crea una nueva votación</p>
+                    <button type="button" class="showFormBtn btn btn-block mt-4surveyBtn w-50" 
+                        style="background-color: #51FF96; border: none; color: white; font-size: 1.2rem;">Crear</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <div class="residents-card shadow rounded-3">
+                    <p class="text-center" style="color: white; font-size: 1.7rem;">RESIDENTES TOTALES</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="#fff" class="bi bi-pie-chart"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M7.5 1.018a7 7 0 0 0-4.79 11.566L7.5 7.793zm1 0V7.5h6.482A7 7 0 0 0 8.5 1.018M14.982 8.5H8.207l-4.79 4.79A7 7 0 0 0 14.982 8.5M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8" />
+                    </svg>
+                    <p class="text-center" style="font-size: 2rem;">X % X</p>
+                </div>
+            </div>
+            <div class="col-md-6 " style="margin-top: -7vh;">
+                <div class="d-flex flex-column align-items-center shadow-lg rounded-3 "
+                    style="background-color: #262C4F;">
+                    <p class="rounded-3 p-1 mt-3 w-75" style="background-color: #EF8101; font-size: 1.1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                            <path
+                                d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
+                            <path
+                                d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                        </svg>
+                        Cualquier cambio que hagas aquí podría modificar los registros de la base de datos
+                    </p>
+                    <button type="button" class="btn btn-block mt-2  surveyBtn bg-danger w-50" 
+                        style="border: none; color: white; font-size: 1.2rem;">Agregar usuario</button>
+                    <button type="button" class="btn btn-block mt-4  surveyBtn bg-danger w-50" 
+                        style="border: none; color: white; font-size: 1.2rem;">Eliminar usuario</button>
+                    <button type="button" class="btn btn-block mt-4  surveyBtn bg-danger w-50" 
+                        style="border: none; color: white; font-size: 1.2rem;">Actualizar usuario</button>
+                    <button type="button" class="btn btn-block mt-4 mb-4 surveyBtn bg-danger w-50" 
+                        style="border: none; color: white; font-size: 1.2rem;">Dar permisos a usuario</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <section style="margin-top: -70vh;">
+        <!-- FORMULARIO PARA LA ENCUESTA -->
+        <div class="surveyForm d-flex flex-column rounded-3 mx-auto align-items-end" style="width: 40vw;">
+            <button id="hideFormBtn" class="col-1 hideFormBtn btn mt-1 p-0 justify-content-end"
+                style="display: none;margin-right: 0.3vw;width:fix-content;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000" class="bi bi-x-lg mx-auto"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                </svg>
+            </button>
+            <form th:action="@{/appsembly/survey/save}" th:object="${survey}" method="post"
+                class="w-75  surveyForm mx-auto" style="display: none;">
+                <h1 class="mx-auto" style="color: white;">Nueva encuesta</h1>
+                <div class="mb-3 w-100 mx-auto">
+                    <label for="titulo">Título:</label>
+                    <input type="text" class="form-control W-25" id="titulo" name="title">
+                </div>
+                <div class="mb-3 w-100 mx-auto bg-danger -mt-5">
+                    <label for="pregunta">Pregunta:</label>
+                    <input type="text" class="form-control W-25" id="pregunta" name="question">
+                </div>
+                <div class="mb-3 w-100">
+                    <label for="respuestas">Respuestas:</label>
+                    <div class="respuestasContainer " id="respuestasContainer">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Respuesta 1" name="respuestas[]">
+                            <button class="btn btn-danger eliminarRespuesta " type="button">Eliminar</button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button class="btn btn-success btnAgregarRespuesta" type="button" style="margin-right: 0.5vw;">
+                            Agregar Respuesta
+                        </button>
+                        <button type="submit" class="btn btn-primary">Guardar Encuesta</button>
+                    </div>
+                    <div class="mb-3 w-100">
+                        <label for="fechaExpiracion">Fecha de Expiración:</label>
+                        <input type="date" class="form-control" id="fechaExpiracion" name="expirationDate">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" th:src="@{/scripts/admin/main.js}"></script>
+
+</body>
+
+</html>
