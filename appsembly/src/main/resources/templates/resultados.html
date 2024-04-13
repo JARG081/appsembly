@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="/static/css/resultados.css"> <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <div id="contenedorPrincipal">
+
+            <h2 id="tituloEncuesta"></h2> <!-- Agregar un elemento h2 para mostrar el título -->           
+
+            <section id="notas">
+                <h2 id="tituloNota"></h2> <!-- Título de la nota cargado desde JavaScript -->
+                <p id="contenidoNota"></p> <!-- Contenido de la nota cargado desde JavaScript -->
+                <button>Ver Gráficas</button>
+                <button>Ver Asistentes</button>
+            </section>
+
+
+            <div id="secciones">
+                    
+                <section id="resultado">
+                    <h2 id="tituloResultado"></h2> <!-- Título del resultado cargado desde JavaScript -->
+                    <div id="resultadoGrafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </section>
+
+                <section id="opciones">
+                    <h2>Opciones de Votacion</h2>
+                    <div id="contenedorOpciones"></div>
+                </section>
+
+            </div>
+    </div>
+
+    <script src="/static/scripts/resultados.js"></script> <!-- Vincula el archivo JavaScript -->
+</body>
+
+</html>
