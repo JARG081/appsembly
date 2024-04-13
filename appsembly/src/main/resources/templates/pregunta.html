@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="/static/css/pregunta.css"> <!-- Vincula el archivo CSS -->
+</head>
+<body>
+    <section id="grafica">
+        <h2 id="titulo"></h2> <!-- Agregar un elemento h2 para mostrar el título -->
+        <canvas id="myChart"></canvas>
+    </section>
+
+    <section id="notas">
+        <h2 id="tituloNota"></h2> <!-- Título de la nota cargado desde JavaScript -->
+        <p id="contenidoNota"></p> <!-- Contenido de la nota cargado desde JavaScript -->
+        <button>Ver Gráficas</button>
+        <button>Ver Asistentes</button>
+    </section>
+
+    <section id="resultado">
+        <h2 id="tituloResultado"></h2> <!-- Título del resultado cargado desde JavaScript -->
+        <div id="resultadoGrafico">
+            <h3>Título del Resultado</h3>
+            <canvas id="canvasResultado"></canvas>
+            <div id="opcionesResultado">
+                <!-- Opciones del resultado cargadas desde JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/scripts/pregunta.js"></script> <!-- Vincula el archivo JavaScript -->
+</body>
+</html>
