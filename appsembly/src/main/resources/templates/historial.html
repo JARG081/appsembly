@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial</title>
+    <link rel="stylesheet" href="/static/css/historial.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>APPSEMBLY</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>                
+                <li><a href="adminpanel.html">Panel de Administracion</a></li>
+                <li><a href="pregunta.html">Pregunta</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="historial.html">Historial</a></li>
+                <li><a href="index.html">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <section id="historial">
+            <h1>HISTORIAL DE VOTACIONES</h1>
+            <h2>Observe sus votaciones pasadas y programadas</h2>
+            <div id="contenedor-votaciones"></div>
+        </section>
+        <section class="menu-lateral">
+            <div class="perfil">
+                <img src="/static/img/profilepc.png" alt="Imagen de perfil">
+                <p id="nombre">Nombre</p>
+                <p id="apellido">Apellido</p>
+                <button>Cerrar sesión</button>
+                <button>Configuración</button>
+            </div>
+            <div class="descargar-actividad">
+                <button>Descargar mi actividad</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/scripts/historial.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/static/css/inicio.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>APPSEMBLY</h1> 
+        </div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>                
+                <li><a href="adminpanel.html">Panel de Administracion</a></li>
+                <li><a href="pregunta.html">Pregunta</a></li>
+                <li><a href="resultados.html">Resultados</a></li>
+                <li><a href="historial.html">Historial</a></li>
+                <li><a href="index.html">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+        </header>
+
+    <div class="container">
+        <section class="welcome-section">
+            <h2>Bienvenido a APPSEMBLY</h2>
+            <p>¡Gracias por unirte a nuestra comunidad! Aquí puedes participar en encuestas, ver resultados pasados y mucho más.</p>
+        </section>
+
+        <section class="instructions-section">
+            <h3>INGRESE A ENCUESTA</h3>
+            <p>Ingrese el codigo y haga click en ingresar.</p>
+            <form action="/ingresar_codigo" method="POST">
+                <input type="text" placeholder="Ingrese su código aquí" name="codigo">
+                <button type="submit">Ingresar</button>
+            </form>
+         </section>
+    </div>
+
+    <section class="support-section">
+        <h3>¿Necesitas ayuda?</h3>
+        <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
+        <p>contacto@soporte.com --- 01800012345</p>
+    </section>
+</body>
+</html>
